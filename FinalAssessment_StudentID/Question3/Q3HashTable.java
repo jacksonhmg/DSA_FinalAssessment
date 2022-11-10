@@ -21,7 +21,14 @@ public class Q3HashTable {
         readInHTable("6degrees.csv", hTable, entryType);
         System.out.println("Enter string to search for");
         String searchString = sc.nextLine();
-        System.out.println(hTable.get(searchString));
+        Object[] valArr = hTable.get(searchString, hTable.getArrayLength());
+        for(int i = 0; i < valArr.length; i++)
+        {
+            if(valArr[i] != null)
+            {
+                System.out.println(valArr[i]);
+            }
+        }
     }
 
 
@@ -135,27 +142,25 @@ public class Q3HashTable {
         }
     } 
     
-    public void put(String inKey, Object inValue) {
-
+    public void put(String inKey, Object inValue)
+    {
+        //System.out.println(" putting : ");
         int hashIdx = hash(inKey);
-		int initIdx = hashIdx;
-        int i = 1;
-
-        while (hashArray[hashIdx] != null && !hashArray[hashIdx].getKey().equals(inKey)) {
-
-            if (!hashArray[hashIdx].getKey().equals(inKey)) { 
-                if (hashArray[hashIdx].getState() == 1) { 
-                    hashIdx = (initIdx + i) % hashArray.length; 
-                }
-
-                if (hashArray[hashIdx].getState() < 1) { 
-                    hashArray[hashIdx] = new HashEntry(inKey, inValue); 
-                    hashCount++; 
-                }
+        int origIdx = hashIdx;
+        while((hashArray[hashIdx].state != 0) && (hashArray[hashIdx].state != 2))
+        {
+            hashIdx = (hashIdx + stepHash(inKey));
+            if(hashIdx >= hashArray.length)
+            {
+                hashIdx = hashIdx - hashArray.length;
             }
-            i++; 
-        } 
-
+            //System.out.println(hashIdx);
+            if(hashIdx == origIdx)
+            {
+                throw new IllegalArgumentException("Cannot insert, hashIdx == origIdx");
+            }
+        }
+        hashArray[hashIdx] = new HashEntry(inKey, inValue);
     }
 
 
@@ -173,12 +178,15 @@ public class Q3HashTable {
         return hashStep;
     }
 
-    public Object get(String inKey)
+    public Object[] get(String inKey, int arrayLength)
     {
         int hashIdx = hash(inKey);
         int origIdx = hashIdx;
         boolean found = false;
         boolean giveUp = false;
+        int counter = 0;
+        Object[] valueArr = new Object[arrayLength];
+        System.out.println(arrayLength);
 
         while(!found && !giveUp)
         {
@@ -189,7 +197,9 @@ public class Q3HashTable {
             }
             else if(hashArray[hashIdx].key.equals(inKey))
             {
-                found = true;
+                valueArr[counter] = hashArray[hashIdx].value;
+                counter++;
+                hashIdx = (hashIdx + stepHash(inKey));
             }
             else
             {
@@ -205,11 +215,11 @@ public class Q3HashTable {
                 }
             }
         }
-        if(!found)
+        /*if(!found)
         {
             throw new IllegalArgumentException("Can't find");
-        }
-        return hashArray[hashIdx].value;
+        }*/
+        return valueArr;
     }
 
     public boolean hasKey(String inKey)
