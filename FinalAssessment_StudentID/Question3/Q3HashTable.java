@@ -191,7 +191,6 @@ public class Q3HashTable {
         boolean giveUp = false;
         int counter = 0;
         Object[] valueArr = new Object[arrayLength];
-        System.out.println(arrayLength);
 
         while(!found && !giveUp)
         {
