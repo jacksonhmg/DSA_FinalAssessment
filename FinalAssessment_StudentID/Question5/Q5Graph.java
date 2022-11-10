@@ -16,13 +16,13 @@ public class Q5Graph
 
     public Q5Graph() 
     {
-	maxsize = 20;
-	wmatrix = new int[maxsize][maxsize];
-	labels = new String[maxsize];
+        maxsize = 20;
+        wmatrix = new int[maxsize][maxsize];
+        labels = new String[maxsize];
         for(int i=0; i < maxsize; i++)
-	    for (int j=0; j< maxsize; j++)
+            for (int j=0; j< maxsize; j++)
             { 
-		wmatrix[i][j] = 0;
+                wmatrix[i][j] = 0;
             }
         vertexCount = 0;
     }
@@ -32,6 +32,7 @@ public class Q5Graph
         if (vertexCount == maxsize)
 	{
 		// do nothing, but should throw exception
+        throw new IllegalArgumentException("Graph is already at max size");
 	}
 	else if (!(hasVertex(label))) 
         {
@@ -53,10 +54,13 @@ public class Q5Graph
     public boolean hasVertex(String label) 
     {
         boolean has = false;
-        for (int i=0; i < vertexCount; i++) 
+        for(int i=0; i < vertexCount; i++) 
         {
-           if (labels[i].equals(label))
+            if (labels[i].equals(label))
+            {
                 has = true;
+            }
+
         }
         return has;
     }
@@ -65,11 +69,13 @@ public class Q5Graph
     {
         int theVertex = -1;
         for (int i=0; i < vertexCount; i++) 
-            {
+        {
             if (labels[i].equals(label))
+            {
                 theVertex = i;
-            }
-	return theVertex;    
+            }  
+        }
+	    return theVertex;    
 	}
 
     public void displayAsList() 

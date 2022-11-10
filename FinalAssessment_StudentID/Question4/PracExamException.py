@@ -1,2 +1,0 @@
-class PracExamException (Exception):
-	pass
