@@ -1,0 +1,23 @@
+Normal BST
+    There are 3 cases to consider when deleting a node:
+        The node to be deleted has no children
+        The node to be deleted has one child
+        The node to be deleted has two children
+    If the node has no children, you simply nullify the parent's link and "delete" it
+    If the node has one child, have the child of the deleted node become connected to the deleted node's parent (i.e. have the orphan become adopted by the parent)
+    If the node has two children, find the successor for the deleted node. The successor is the left most of right-sub tree and then replace the deleted node with the sucessor node
+
+Red-Black Tree
+    If the node to be deleted is a red node with no children, simply remove the parent link and delete the node
+    If the node to be deleted is a black node with no children, delete the node and refactor the tree to maintain the black-height and almost-complete rules of a red-black tree
+    If the node to be deleted is a black node with one child, have the child of the deleted node become connected to the deleted node's parent (i.e. have the orphan become adopted by the parent)
+    If the node to be deleted is a red node with two children, replace the node to be deleted with its successor (the right most node of its left-sub tree)
+    If the node to be deleted is a black node with two children, replace the node to be deleted with its successor (the right most node of its left-sub tree)
+    
+2-3-4 Tree
+
+
+B-Tree
+    If the node to be deleted has no children, simply remove the parents link and delete the node
+    If the node to be deleted has 3 children (one shared with another node), remove it and combine two of its children into one depending on which node you deleted (the higher or lower of the pair)
+    If the node to be deleted has 2 children, replace it with the right mode node of the left child
