@@ -1,0 +1,21 @@
+(a)
+    For 1) No Wrap: 
+        My assignment can already handle this. The top layer of the numbers is connected to the bottom layer of the numbers 
+        and the space and backspace keys would be connected one directionally from the three keys below it so the key itself and bi-directionally 
+        back to the key directly below (i.e. 'b' for spacebar and 'f' for backspace)
+
+    For 2) No Wrap:
+        As you enter the string into the keyboard, the assignment code would cross-reference the input with an array of known values
+        to compare against. The top of the suggested 'list' would connect an edge with the bottom row of the original keyboard ('123', '#-!', Backspace)
+        and each suggested list entry would share an edge with the entry above and below itself 
+
+(b)
+    Because keyboard 1) works exactly as my assignment does, using my assignment would give an approximate demonstration of the keyboard performance. 
+    You can also assume that keyboard 1) will be faster than keyboard 2) in terms of performance.
+
+    For keyboard 2), due to the nature of continually cross-referencing an external data structure to check for suggestions, the performance would be a lot slower.
+
+(c)
+    This strategy could be supported by assignment. Essentially, this could be replicated by just removing the vertexes faded out in the example,
+    this vertex removal is a method that was required for the assignment and so it would be easy to implement. In terms of determining which vertexes to delete,
+    my assignment already pre-checks the desired string before traversing and so it could nullify any uneccesary vertexes after pre-check.

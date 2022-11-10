@@ -1,9 +1,0 @@
-For 1) No Wrap: 
-    My assignment can already handle this. The top layer of the numbers is connected to the bottom layer of the numbers 
-    and the space and backspace keys would be connected one directionally from the three keys below it so the key itself and bi-directionally 
-    back to the key directly below (i.e. 'b' for spacebar and 'f' for backspace)
-
-For 2) No Wrap:
-    As you enter the string into the keyboard, the assignment code would cross-reference the input with an array of known values
-    to compare against. The top of the suggested 'list' would connect an edge with the bottom row of the original keyboard ('123', '#-!', Backspace)
-    and each suggested list entry would share an edge with the entry above and below itself 
