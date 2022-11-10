@@ -13,14 +13,20 @@ public class Q3HashTable {
 
     public static void main(String[] args)
     {
+        Scanner sc = new Scanner(System.in);
         Q3HashTable hTable = new Q3HashTable(100);
-        readInHTable("6degrees.csv", hTable);
         /*System.out.println(hTable.get(args[0]));*/
+        System.out.println("Enter which type of entry you want to receive (Movie,Year,Actor,Role)");
+        String entryType = sc.nextLine();
+        readInHTable("6degrees.csv", hTable, entryType);
+        System.out.println("Enter string to search for");
+        String searchString = sc.nextLine();
+        System.out.println(hTable.get(searchString));
     }
 
 
 
-    public static void readInHTable(String file, Q3HashTable hTable)
+    public static void readInHTable(String file, Q3HashTable hTable, String entryType)
     {
         try{
             File myObj = new File(file);
@@ -28,10 +34,24 @@ public class Q3HashTable {
             while (myReader.hasNextLine())
             {
                 String data = myReader.nextLine();
-                System.out.println(data);
                 String[] sArray = processLine(data);
                 hTable.resizeCheck();
-                hTable.put(sArray[0], sArray[1]);
+                if(entryType.equals("Movie"))
+                {
+                    hTable.put(sArray[0], data);
+                }
+                if(entryType.equals("Year"))
+                {
+                    hTable.put(sArray[1], data);
+                }
+                if(entryType.equals("Actor"))
+                {
+                    hTable.put(sArray[3].trim(), data); /* space at end of every actors name, need to trim */
+                }
+                if(entryType.equals("Role"))
+                {
+                    hTable.put(sArray[5], data);
+                }
                 //System.out.println(sArray[0]);
             }
             myReader.close();
