@@ -21,7 +21,9 @@ public class Q3HashTable {
         readInHTable("6degrees.csv", hTable, entryType);
         System.out.println("Enter string to search for");
         String searchString = sc.nextLine();
+        long startTime = System.nanoTime();
         Object[] valArr = hTable.get(searchString, hTable.getArrayLength());
+        long endTime = System.nanoTime();
         for(int i = 0; i < valArr.length; i++)
         {
             if(valArr[i] != null)
@@ -29,6 +31,9 @@ public class Q3HashTable {
                 System.out.println(valArr[i]);
             }
         }
+        double runningTotal = (int)((double)(endTime - startTime) / 1000.0);	// Convert to microsecs
+        System.out.println("Time taken: " + runningTotal);
+
     }
 
 
