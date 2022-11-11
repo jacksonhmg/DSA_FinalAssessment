@@ -18,14 +18,13 @@ public class Q3BSTree {
         System.out.println("Enter which type of entry you want to receive (Movie,Year,Actor,Role)");
         String entryType = sc.nextLine();
         readInBST("6degrees.csv", BST, entryType);
-        System.out.println("Enter string to search for");
+        System.out.println("Enter string to search for (i.e. the movie Jane Eyre or the actor Jamie Bell)");
         String searchString = sc.nextLine();
         long startTime = System.nanoTime();
         BST.inOrderTraverse(searchString);
         long endTime = System.nanoTime();
         double runningTotal = (int)((double)(endTime - startTime) / 1000.0);	// Convert to microsecs
         System.out.println("Time taken: " + runningTotal);
-
 	}
 
 

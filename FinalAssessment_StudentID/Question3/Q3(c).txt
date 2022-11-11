@@ -1,0 +1,16 @@
+Theoretical Analysis:
+    Theoretically the hash table should be faster in performance as a hash table is optimised to handle large amounts of data with exact keys given.
+    A binary search tree, on the other hand, is not optimised to handle this large amount of data.
+
+Actual Analysis:
+    Using the inputs: "Movie" and "Jane Eyre":
+        HashTable has an average time taken of 130microseconds
+        BinarySearchTree has an average time taken of 27000microseconds
+    Using the inputs: "Actor" and "Jamie Bell":
+        HashTable has an average time taken of 80microseconds
+        BinarySearchTree has an average time taken of 2100microseconds
+    Using the inputs: "Role" and "Dad":
+        HashTable has an average time taken of 50microseconds
+        BinarySearchTree has an average time taken of 1300microseconds
+
+As we can see, the HashTable is superior across all fields.

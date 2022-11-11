@@ -19,7 +19,7 @@ public class Q3HashTable {
         System.out.println("Enter which type of entry you want to receive (Movie,Year,Actor,Role)");
         String entryType = sc.nextLine();
         readInHTable("6degrees.csv", hTable, entryType);
-        System.out.println("Enter string to search for");
+        System.out.println("Enter string to search for (i.e. the movie Jane Eyre or the actor Jamie Bell)");
         String searchString = sc.nextLine();
         long startTime = System.nanoTime();
         Object[] valArr = hTable.get(searchString, hTable.getArrayLength());
