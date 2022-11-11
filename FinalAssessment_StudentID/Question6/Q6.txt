@@ -5,13 +5,17 @@
         back to the key directly below (i.e. 'b' for spacebar and 'f' for backspace)
 
     For 2) No Wrap:
+	The second keyboard is just one low keyboard row, this is inherently much less efficient as every keyboard has only a maximum of 2 connections to other keys,
+	this increases the time taken drastically.
         As you enter the string into the keyboard, the assignment code would cross-reference the input with an array of known values
         to compare against. The top of the suggested 'list' would connect an edge with the bottom row of the original keyboard ('123', '#-!', Backspace)
         and each suggested list entry would share an edge with the entry above and below itself 
 
 (b)
     Because keyboard 1) works exactly as my assignment does, using my assignment would give an approximate demonstration of the keyboard performance. 
-    You can also assume that keyboard 1) will be faster than keyboard 2) in terms of performance.
+    Using my assignment we can collect test data. The netflix keyboard is the most similar to keyboard 1), so using the netflix keyboard with the 'skywalker' input,
+    we have a path of 38 steps with breadth.
+    You can also assume that keyboard 1) will be faster than keyboard 2) in terms of performance because keys in keyboard 1) have more neighbouring connections.
 
     For keyboard 2), due to the nature of continually cross-referencing an external data structure to check for suggestions, the performance would be a lot slower.
 
