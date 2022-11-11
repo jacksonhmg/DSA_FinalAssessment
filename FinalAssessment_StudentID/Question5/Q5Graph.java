@@ -95,7 +95,7 @@ public class Q5Graph
         int v2 = getIndex(label2);
         if(v1 > -1 && v2 > -1)
         {
-            if(wmatrix[v1][v2] == 1)
+            if(wmatrix[v1][v2] != 0)
             {
                 return true;
             }
