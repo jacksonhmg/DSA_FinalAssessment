@@ -14,10 +14,10 @@ public class GraphTest
 			// put your code here
 			Q5Graph g = new Q5Graph();
 			
-			g.addVertex("one");
-			g.addVertex("two");
-			g.addVertex("three");
-			g.addVertex("four");
+			g.addVertex("one","num");
+			g.addVertex("two","num");
+			g.addVertex("three","num");
+			g.addVertex("four","num");
 			
 			g.addEdge("one", "two", 3);
 			g.addEdge("one", "three", 4);
