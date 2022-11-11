@@ -15,7 +15,12 @@ Red-Black Tree
     If the node to be deleted is a black node with two children, replace the node to be deleted with its successor (the right most node of its left-sub tree)
     
 2-3-4 Tree
-
+    If node to be deleted is in a group consisting of at least 2 nodes, delete node.
+    If node to be deleted is in a group, is the middle node and left child has at least 2 nodes, replace node to be deleted with its predecessor
+    If node to be deleted is in a group, is the middle node and right child has at least 2 nodes, replace node to be deleted with its successor
+    If node to be deleted is in a group, is the middle node and both left/right nodes have only 1 node, merge left and right child
+    If node to be deleted is in a group, is not the middle node, the child group has only 1 node and another child group has at least 2 nodes, move parent to group with only 1 node and move node from child group with at least 2 nodes into parent group
+    If node to be deleted is in a group, is not the middle node, and all child groups have only 1 node, merge child groups and move node from parent to new merged group to become the middle node
 
 B-Tree
     If the node to be deleted has no children, simply remove the parents link and delete the node

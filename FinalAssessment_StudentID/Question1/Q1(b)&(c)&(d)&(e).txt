@@ -1,0 +1,63 @@
+(b)
+mergeSort(A)
+    mergeSortRecurse(A,0,7)
+        mergeSortRecurse(A,0,3)
+            mergeSortRecurse(A,0,1)
+            mergeSortRecurse(A,2,3)
+            merge(A,0,1,3)
+        mergeSortRecurse(A,4,7)
+            mergeSortRecurse(A,4,5)
+            mergeSortRecurse(A,6,7)
+            merge(A,4,5,7)
+        merge(A,0,3,7)
+
+
+
+(c)
+quickSort(A)
+    quickSortRecurse(A,0,7)
+        doPartioning(A,0,7,7)
+        quickSortRecurse(A,0,4)
+            doPartioning(A,0,4,4)
+            quickSortRecurse(A,0,3)
+                doPartioning(A,0,3,3)
+                quickSortRecurse(A,0,2)
+                    doPartioning(A,0,2,2)
+                    quickSortRecurse(A,0,1)
+                        doPartioning(A,0,1,1)
+                        quickSortRecurse(A,0,0)
+                        quickSortRecurse(A,2,1)
+                    quickSortRecurse(A,3,2)
+                quickSortRecurse(A,4,3)
+            quickSortRecurse(A,5,4)
+        quickSortRecurse(A,6,7)
+            doPartioning(A,6,7,7)
+            quickSortRecurse(A,6,5)
+            quickSortRecurse(A,7,7)
+
+
+(d)
+As can be seen above, quicksort requires far more levels of recursion and function calls, 
+even while sorted in ascending order. For a 10000 element array, mergesort would be superior 
+in terms of less function calls and lower depth of recursion.
+
+
+(e)
+For n1 = 2056 and n2 = 8818, there are 7 levels of recursion
+hcf(2056,8818)
+    hcf(8818,2056)
+        hcf(2056,594)
+            hcf(594,274)
+                hcf(274,46)
+                    hcf(46,44)
+                        hcf(44,2)
+
+
+For n1 = 8818 and n2 = 2056, there are 6 levels of recursion:
+hcf(8818,2056)
+    hcf(2056,594)
+        hcf(594,274)
+            hcf(274,46)
+                hcf(46,44)
+                    hcf(44,2)
+
